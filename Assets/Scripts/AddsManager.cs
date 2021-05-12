@@ -5,8 +5,6 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using System;
 using UnityEngine.PlayerLoop;
-//LionStudios
-using LionStudios;
 
 public class AddsManager : MonoBehaviour
 {
@@ -20,8 +18,6 @@ public class AddsManager : MonoBehaviour
 
     private void Awake()
     {
-        //LionStudios
-        LionKit.Initialize();
 
         rewardedCoinAdUnitID = "ca-app-pub-2260161542736477/7687252901";
         rewardedMultiplierAdUnitID = "ca-app-pub-2260161542736477/6921305457";
@@ -32,13 +28,11 @@ public class AddsManager : MonoBehaviour
     }
     private void Start()
     {
-        //LionStudios
-        //Commented all in start
-
-        //MobileAds.Initialize(initStatus => {
-        //    CheckNullAndCreate();
-        //    InvokeRepeating("CheckAndLoadAds", 10f, 15f);
-        //});
+        MobileAds.Initialize(initStatus =>
+        {
+            CheckNullAndCreate();
+            InvokeRepeating("CheckAndLoadAds", 10f, 15f);
+        });
     }
     public void CheckNullAndCreate()
     {

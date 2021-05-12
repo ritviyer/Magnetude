@@ -1,31 +1,5 @@
 {
   "dependencies": {
-    "com.google.external-dependency-manager": {
-      "version": "1.2.160",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://unityregistry-pa.googleapis.com"
-    },
-    "com.lionstudios.release.lionkit": {
-      "version": "1.1.65",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.google.external-dependency-manager": "1.2.160",
-        "com.lionstudios.release.localization": "1.0.23"
-      },
-      "url": "http://packages.lionstudios.cc:4873"
-    },
-    "com.lionstudios.release.localization": {
-      "version": "1.0.23",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.textmeshpro": "1.4.1"
-      },
-      "url": "http://packages.lionstudios.cc:4873"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

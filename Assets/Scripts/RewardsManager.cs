@@ -54,17 +54,13 @@ public class RewardsManager : MonoBehaviour
         DateTime coinAvail = Convert.ToDateTime(PlayerPrefs.GetString("MoneySpinAvailable"));
         DateTime adAvail = Convert.ToDateTime(PlayerPrefs.GetString("AdSpinAvailable"));
 
-        //LionStudios
-        //all comments in this function are added for this
-
-        //if (DateTime.Now > adAvail)
-        //{
-        //    adSpinButton.gameObject.SetActive(true);
-        //    spinButton.gameObject.SetActive(false);
-        //    spinTimerButton.gameObject.SetActive(false);
-        //}
-        //Make this elseif
-        if (DateTime.Now > coinAvail)
+        if (DateTime.Now > adAvail)
+        {
+            adSpinButton.gameObject.SetActive(true);
+            spinButton.gameObject.SetActive(false);
+            spinTimerButton.gameObject.SetActive(false);
+        }
+        else if (DateTime.Now > coinAvail)
         {
             spinButton.gameObject.SetActive(true);
             adSpinButton.gameObject.SetActive(false);
@@ -76,13 +72,10 @@ public class RewardsManager : MonoBehaviour
             adSpinButton.gameObject.SetActive(false);
             spinTimerButton.gameObject.SetActive(true);
 
-            //remove this timer and uncomment if else
-            spinTimerButton.GetComponentInChildren<Text>().text = TimeToBonus(DateTime.Now, coinAvail);
-
-            //if(adAvail < coinAvail)
-            //    spinTimerButton.GetComponentInChildren<Text>().text = TimeToBonus(DateTime.Now, adAvail);
-            //else
-            //    spinTimerButton.GetComponentInChildren<Text>().text = TimeToBonus(DateTime.Now, coinAvail);
+            if (adAvail < coinAvail)
+                spinTimerButton.GetComponentInChildren<Text>().text = TimeToBonus(DateTime.Now, adAvail);
+            else
+                spinTimerButton.GetComponentInChildren<Text>().text = TimeToBonus(DateTime.Now, coinAvail);
         }
     }
     string TimeToBonus(DateTime from, DateTime to)

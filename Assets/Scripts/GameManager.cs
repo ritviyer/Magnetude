@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
-//LionStudios
-using LionStudios;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,40 +30,29 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-        //LionStudios
-        //all comments added
-
-        //if (GlobalVariables.interGameOverAd == null)
-        //{
-        //    FindObjectOfType<AddsManager>().CheckNullAndCreate();
-        //}
-        //else if (GlobalVariables.interGameOverAd.IsLoaded())
-        //{
-        //    if (PlayerPrefs.GetInt("ActiveChallenge") > 1)
-        //        GlobalVariables.interGameOverAd.Show();
-        //}
+        if (GlobalVariables.interGameOverAd == null)
+        {
+            FindObjectOfType<AddsManager>().CheckNullAndCreate();
+        }
+        else if (GlobalVariables.interGameOverAd.IsLoaded())
+        {
+            if (PlayerPrefs.GetInt("ActiveChallenge") > 1)
+                GlobalVariables.interGameOverAd.Show();
+        }
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void UseCoins()
     {
         int coins = PlayerPrefs.GetInt("TotalCoins");
-        if (coins >= 100)
+        if (coins >= 200)
         {
-            coins = coins - 100;
+            coins = coins - 200;
             PlayerPrefs.SetInt("TotalCoins", coins);
             GlobalVariables.gameNumber += 1;
             Time.timeScale = 0.01f;
             FindObjectOfType<PerksManager>().GameContinue();
             gameOverMenu.SetActive(false);
-
-
-            //LionStudios
-            Dictionary<string, object> eventParams = new Dictionary<string, object>();
-            eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-            eventParams["game Coins"] = GlobalVariables.gameCoins;
-            eventParams["game score"] = GlobalVariables.gameScore;
-            Analytics.Events.LevelRestart(eventParams);
         }
         else
         {

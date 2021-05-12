@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Security.Cryptography;
-//LionStudios
-using LionStudios;
 
 public class PerksManager : MonoBehaviour
 {
@@ -128,68 +126,42 @@ public class PerksManager : MonoBehaviour
                 {
                     GlobalVariables.canSpinMultiplier = 1;
                     multiplierMenu.SetActive(true);
-
-                    //LionStudios
-                    Dictionary<string, object> eventParams = new Dictionary<string, object>();
-                    eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-                    eventParams["game Coins"] = GlobalVariables.gameCoins;
-                    eventParams["game score"] = GlobalVariables.gameScore;
-                    Analytics.Events.LevelComplete(eventParams);
                 }
-                //LionStudios
-                //all comments in this function added
                 else
                 {
-                    //if ((GlobalVariables.gameNumber == 2 || GlobalVariables.gameNumber == 3 || GlobalVariables.gameNumber == 5) && (PlayerPrefs.GetInt("ActiveChallenge") > 3))
-                    //{
-                    //    if(GlobalVariables.gameNumber == 5)
-                    //    {
-                    //        GlobalVariables.canSpinMultiplier = 2;
-                    //        multiplierMenu.SetActive(true);
-                    //    }
-                    //    else if (GlobalVariables.gameNumber == 3 && (PlayerPrefs.GetInt("ActiveChallenge") > 10))
-                    //    {
-                    //        GlobalVariables.canSpinMultiplier = 2;
-                    //        multiplierMenu.SetActive(true);
-                    //    }
-                    //    else if (GlobalVariables.gameNumber == 2 && (PlayerPrefs.GetInt("ActiveChallenge") <= 10))
-                    //    {
-                    //        if(Random.Range(0,2) == 0)
-                    //        {
-                    //            GlobalVariables.canSpinMultiplier = 2;
-                    //            multiplierMenu.SetActive(true);
-                    //        }
-                    //        else
-                    //            gameOverMenu.SetActive(true);
-                    //    }
-                    //    else
-                    //        gameOverMenu.SetActive(true);
-                    //}
-                    //else
-                    //    gameOverMenu.SetActive(true);
-
-                    //remove this line later
-                    gameOverMenu.SetActive(true);
-
-                    //LionStudios
-                    Dictionary<string, object> eventParams = new Dictionary<string, object>();
-                    eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-                    eventParams["game Coins"] = GlobalVariables.gameCoins;
-                    eventParams["game score"] = GlobalVariables.gameScore;
-                    Analytics.Events.LevelFailed(eventParams);
+                    if ((GlobalVariables.gameNumber == 2 || GlobalVariables.gameNumber == 3 || GlobalVariables.gameNumber == 5) && (PlayerPrefs.GetInt("ActiveChallenge") > 3))
+                    {
+                        if (GlobalVariables.gameNumber == 5)
+                        {
+                            GlobalVariables.canSpinMultiplier = 2;
+                            multiplierMenu.SetActive(true);
+                        }
+                        else if (GlobalVariables.gameNumber == 3 && (PlayerPrefs.GetInt("ActiveChallenge") > 10))
+                        {
+                            GlobalVariables.canSpinMultiplier = 2;
+                            multiplierMenu.SetActive(true);
+                        }
+                        else if (GlobalVariables.gameNumber == 2 && (PlayerPrefs.GetInt("ActiveChallenge") <= 10))
+                        {
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                GlobalVariables.canSpinMultiplier = 2;
+                                multiplierMenu.SetActive(true);
+                            }
+                            else
+                                gameOverMenu.SetActive(true);
+                        }
+                        else
+                            gameOverMenu.SetActive(true);
+                    }
+                    else
+                        gameOverMenu.SetActive(true);
                 }
             }
             else
             {
                 //native banner add
                 gameOverMenu.SetActive(true);
-
-                //LionStudios
-                Dictionary<string, object> eventParams = new Dictionary<string, object>();
-                eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-                eventParams["game Coins"] = GlobalVariables.gameCoins;
-                eventParams["game score"] = GlobalVariables.gameScore;
-                Analytics.Events.LevelFailed(eventParams);
             }
             Time.timeScale = 0f;
         }

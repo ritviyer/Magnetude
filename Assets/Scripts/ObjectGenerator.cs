@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.VFX;
-//LionStudios
-using LionStudios;
 
 public class ObjectGenerator : MonoBehaviour
 {
@@ -80,11 +78,6 @@ public class ObjectGenerator : MonoBehaviour
         InvokeRepeating("CalculateScore", 0f, 1f);
         InvokeRepeating("ChangeBallSpeed", 0.5f, 1f);
 
-        //LionStudios
-        Dictionary<string, object> eventParams = new Dictionary<string, object>();
-        eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-        eventParams["Total Coins"] = PlayerPrefs.GetInt("TotalCoins");
-        Analytics.Events.LevelStarted(eventParams);
     }
     void CoinDouble()
     {
@@ -149,12 +142,6 @@ public class ObjectGenerator : MonoBehaviour
                     isNewHighScore = true;
                     FindObjectOfType<PerksManager>().AddPerkText("New High Score!!!");
 
-
-                    //LionStudios
-                    Dictionary<string, object> eventParams = new Dictionary<string, object>();
-                    eventParams["level"] = PlayerPrefs.GetInt("ActiveChallenge");
-                    eventParams["game score"] = GlobalVariables.gameScore;
-                    Analytics.Events.HighScoreUnlocked(eventParams);
                 }
                 highScore = GlobalVariables.gameScore;
                 PlayerPrefs.SetFloat("HighScoreP", highScore);

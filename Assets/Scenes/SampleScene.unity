@@ -7815,7 +7815,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Use 100 coins for an Extra Life
+  m_Text: Use 200 coins for an Extra Life
 --- !u!222 &846639210
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9337,7 +9337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -100
+  m_Text: -200
 --- !u!222 &974834635
 CanvasRenderer:
   m_ObjectHideFlags: 0

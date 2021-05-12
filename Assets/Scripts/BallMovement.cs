@@ -71,7 +71,7 @@ public class BallMovement : MonoBehaviour
     }
     void GameStarter(float speed)
     {
-        sideSpeed = speed;
+        sideSpeed = 0.045f;
         forwardSpeed = speed;
         reviveSideSpeed = sideSpeed;
         reviveForwardSpeed = forwardSpeed;

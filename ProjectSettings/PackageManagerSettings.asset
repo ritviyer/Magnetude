@@ -24,14 +24,6 @@ MonoBehaviour:
     m_Scopes: []
     m_IsDefault: 1
     m_Capabilities: 7
-  - m_Id: scoped:Lion Studios Packages
-    m_Name: Lion Studios Packages
-    m_Url: http://packages.lionstudios.cc:4873
-    m_Scopes:
-    - com.lionstudios.release
-    - com.lionstudios.templates
-    m_IsDefault: 0
-    m_Capabilities: 0
   - m_Id: scoped:Game Package Registry by Google
     m_Name: Game Package Registry by Google
     m_Url: https://unityregistry-pa.googleapis.com
