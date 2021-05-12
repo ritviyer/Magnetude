@@ -292,22 +292,11 @@ public class MultiplierWheelManager : MonoBehaviour
     }
     public void WatchForMultiplierSpin()
     {
-        if (GlobalVariables.rewardedMultiplierAd == null)
-            FindObjectOfType<AddsManager>().CheckNullAndCreate();
-        else if (GlobalVariables.rewardedMultiplierAd.IsLoaded())
-        {
-            GlobalVariables.rewardedMultiplierAd.OnUserEarnedReward += HandleUserEarnedReward;
-            FindObjectOfType<AddsManager>().RemoveNetworkError();
-            GlobalVariables.rewardedMultiplierAd.Show();
-        }
-        else
-        {
-            FindObjectOfType<AddsManager>().ShowNetworkError();
-            FindObjectOfType<AddsManager>().CheckAndLoadAds();
-        }
+        if (FindObjectOfType<AddsManager>().ShowVideoReward())
+            HandleUserEarnedReward();
     }
 
-    void HandleUserEarnedReward(object sender, Reward args)
+    void HandleUserEarnedReward()
     {
         TurnWheel();
     }

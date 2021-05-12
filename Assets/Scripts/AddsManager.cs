@@ -5,89 +5,63 @@ using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using System;
 using UnityEngine.PlayerLoop;
+using Yodo1.MAS;
+
 
 public class AddsManager : MonoBehaviour
 {
-    string rewardedCoinAdUnitID;
-    string rewardedMultiplierAdUnitID;
-    string rewardedLifeAdUnitID;
-    string interGameOverAdUnitID;
-    string testDeviceID;
-
     [SerializeField] GameObject networkErrorMenu;
 
-    private void Awake()
-    {
-
-        rewardedCoinAdUnitID = "ca-app-pub-2260161542736477/7687252901";
-        rewardedMultiplierAdUnitID = "ca-app-pub-2260161542736477/6921305457";
-        rewardedLifeAdUnitID = "ca-app-pub-2260161542736477/8725341719";
-        interGameOverAdUnitID = "ca-app-pub-2260161542736477/9751337132";
-
-        testDeviceID = "6B531390E44C6176899A493EC9AD7D0C";
-    }
     private void Start()
     {
-        MobileAds.Initialize(initStatus =>
-        {
-            CheckNullAndCreate();
-            InvokeRepeating("CheckAndLoadAds", 10f, 15f);
-        });
+        Yodo1U3dMas.InitializeSdk();
     }
-    public void CheckNullAndCreate()
+    public void ShowInterstitial()
     {
-        if (GlobalVariables.rewardedCoinAd == null)
-            GlobalVariables.rewardedCoinAd = CreateAndLoadRewardedAd(rewardedCoinAdUnitID);
-        if (GlobalVariables.rewardedMultiplierAd == null)
-            GlobalVariables.rewardedMultiplierAd = CreateAndLoadRewardedAd(rewardedMultiplierAdUnitID);
-        if (GlobalVariables.rewardedLifeAd == null)
-            GlobalVariables.rewardedLifeAd = CreateAndLoadRewardedAd(rewardedLifeAdUnitID);
-        if (GlobalVariables.interGameOverAd == null)
-            GlobalVariables.interGameOverAd = CreateAndLoadInterstitialAd(interGameOverAdUnitID);
+        if(Yodo1U3dMas.IsInterstitialAdLoaded())
+            Yodo1U3dMas.ShowInterstitialAd();
     }
-    public void CheckAndLoadAds()
+
+    public bool ShowVideoReward()
     {
-        if (!GlobalVariables.rewardedCoinAd.IsLoaded())
-            GlobalVariables.rewardedCoinAd = CreateAndLoadRewardedAd(rewardedCoinAdUnitID);
-        if (!GlobalVariables.rewardedMultiplierAd.IsLoaded())
-            GlobalVariables.rewardedMultiplierAd = CreateAndLoadRewardedAd(rewardedMultiplierAdUnitID);
-        if (!GlobalVariables.rewardedLifeAd.IsLoaded())
-            GlobalVariables.rewardedLifeAd = CreateAndLoadRewardedAd(rewardedLifeAdUnitID);
-        if (!GlobalVariables.interGameOverAd.IsLoaded())
+        if (Yodo1U3dMas.IsRewardedAdLoaded())
         {
-            GlobalVariables.interGameOverAd.Destroy();
-            GlobalVariables.interGameOverAd = CreateAndLoadInterstitialAd(interGameOverAdUnitID);
+            RemoveNetworkError();
+            Yodo1U3dMas.ShowRewardedAd();
+            return RewardedVideoEvents();
         }
-    }
-    RewardedAd CreateAndLoadRewardedAd(string adUnitId)
-    {
-        RewardedAd rewardedAd = new RewardedAd(adUnitId);
-        AdRequest request = new AdRequest.Builder().Build();
-        rewardedAd.LoadAd(request);
-        rewardedAd.OnAdClosed += HandleAdClosed;
+        else
+            ShowNetworkError();
 
-        return rewardedAd;
-    }
-    InterstitialAd CreateAndLoadInterstitialAd(string adUnitId)
-    {
-        InterstitialAd interAd = new InterstitialAd(adUnitId);
-        AdRequest request = new AdRequest.Builder().Build();
-        interAd.LoadAd(request);
-        interAd.OnAdClosed += HandleAdClosed;
-
-        return interAd;
-    }
- 
-    public void HandleAdClosed(object sender, EventArgs args)
-    {
-        CheckAndLoadAds();
+        return false;
     }
 
-    public void ShowNetworkError()
+    bool RewardedVideoEvents()
+    {
+        bool ret = false;
+        Yodo1U3dMas.SetRewardedAdDelegate((Yodo1U3dAdEvent adEvent, Yodo1U3dAdError error) => {
+            switch (adEvent)
+            {
+                case Yodo1U3dAdEvent.AdClosed:
+                    break;
+                case Yodo1U3dAdEvent.AdOpened:
+                    break;
+                case Yodo1U3dAdEvent.AdError:
+                    ShowNetworkError();
+                    break;
+                case Yodo1U3dAdEvent.AdReward:
+                    ret = true;
+                    break;
+            }
+        });
+        return ret;
+    }
+
+    void ShowNetworkError()
     {
         networkErrorMenu.SetActive(true);
     }
-    public void RemoveNetworkError()
+    void RemoveNetworkError()
     {
         networkErrorMenu.SetActive(false);
     }

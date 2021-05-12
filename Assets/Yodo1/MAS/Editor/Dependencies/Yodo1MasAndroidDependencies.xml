@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dependencies>
+	<androidPackages>
+		<repositories>
+			<repository>https://dl.bintray.com/yodo1/MAS-Android</repository>
+			<repository>https://dl.bintray.com/yodo1/android-sdk</repository>
+			<repository>https://android-sdk.is.com</repository>
+			<!-- <repository>https://dl.bintray.com/mintegral-official/mintegral_ad_sdk_android_for_oversea</repository>
+			<repository>https://dl.bintray.com/mintegral-official/Andorid_ad_SDK_for_china</repository> -->
+			<repository>https://fyber.bintray.com/marketplace</repository>
+			<!-- <repository>http://nexus.yodo1.com:8081/repository/maven-yodo1mas-preview/</repository> -->
+		</repositories>
+		<androidPackage spec="com.yodo1.mas:full:4.1.0" />
+	</androidPackages>
+</dependencies>

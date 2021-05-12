@@ -60,22 +60,11 @@ public class GameOverCalculator : MonoBehaviour
     }
     public void WatchForExtraLife()
     {
-        if (GlobalVariables.rewardedLifeAd == null)
-            FindObjectOfType<AddsManager>().CheckNullAndCreate();
-        else if (GlobalVariables.rewardedLifeAd.IsLoaded())
-        {
-            GlobalVariables.rewardedLifeAd.OnUserEarnedReward += HandleUserEarnedReward;
-            FindObjectOfType<AddsManager>().RemoveNetworkError();
-            GlobalVariables.rewardedLifeAd.Show();
-        }
-        else
-        {
-            FindObjectOfType<AddsManager>().ShowNetworkError();
-            FindObjectOfType<AddsManager>().CheckAndLoadAds();
-        }
+        if (FindObjectOfType<AddsManager>().ShowVideoReward())
+            HandleUserEarnedReward();
     }
 
-    void HandleUserEarnedReward(object sender, Reward args)
+    void HandleUserEarnedReward()
     {
         adSeen = true;
     }

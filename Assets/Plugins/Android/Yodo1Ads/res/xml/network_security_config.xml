@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    <!-- End AdColony cleartext requirement -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- For Facebook -->
+        <domain includeSubdomains="true">127.0.0.1</domain>
+
+    </domain-config>
+</network-security-config>

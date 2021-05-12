@@ -15,8 +15,4 @@ public static class GlobalVariables
     public static int game2xCoins;
     public static bool gameChallengeComplete;
     public static int canSpinMultiplier;
-    public static RewardedAd rewardedCoinAd;
-    public static RewardedAd rewardedMultiplierAd;
-    public static RewardedAd rewardedLifeAd;
-    public static InterstitialAd interGameOverAd;
 }

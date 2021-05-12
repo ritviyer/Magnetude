@@ -30,14 +30,9 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
-        if (GlobalVariables.interGameOverAd == null)
+        if (PlayerPrefs.GetInt("ActiveChallenge") > 1)
         {
-            FindObjectOfType<AddsManager>().CheckNullAndCreate();
-        }
-        else if (GlobalVariables.interGameOverAd.IsLoaded())
-        {
-            if (PlayerPrefs.GetInt("ActiveChallenge") > 1)
-                GlobalVariables.interGameOverAd.Show();
+            FindObjectOfType<AddsManager>().ShowInterstitial();
         }
         Time.timeScale = 1;
         SceneManager.LoadScene(0);

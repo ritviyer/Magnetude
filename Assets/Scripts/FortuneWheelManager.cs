@@ -21,7 +21,7 @@ public class FortuneWheelManager : MonoBehaviour
     public GameObject Circle; 			// Rotatable Object with rewards
     public Text CoinsDeltaText; 		// Pop-up text with wasted or rewarded coins amount
     public Text CurrentCoinsText; 		// Pop-up text with wasted or rewarded coins amount
-    int TurnCost = 100;			        // How much coins user waste when turn whe wheel
+    int TurnCost = 150;			        // How much coins user waste when turn whe wheel
     int CurrentCoinsAmount;	            // Started coins amount. In your project it can be set up from CoinsManager or from PlayerPrefs and so on
     int PreviousCoinsAmount;		    // For wasted coins animation
     bool toPlayWheelSound = false;
@@ -241,22 +241,13 @@ public class FortuneWheelManager : MonoBehaviour
 
     public void WatchForCoinSpin()
     {
-        if (GlobalVariables.rewardedCoinAd == null)
-            FindObjectOfType<AddsManager>().CheckNullAndCreate();
-        else if (GlobalVariables.rewardedCoinAd.IsLoaded())
+        if (FindObjectOfType<AddsManager>().ShowVideoReward())
         {
-            GlobalVariables.rewardedCoinAd.OnUserEarnedReward += HandleUserEarnedReward;
-            FindObjectOfType<AddsManager>().RemoveNetworkError();
-            GlobalVariables.rewardedCoinAd.Show();
-        }
-        else
-        {
-            FindObjectOfType<AddsManager>().ShowNetworkError();
-            FindObjectOfType<AddsManager>().CheckAndLoadAds();
+            HandleUserEarnedReward();
         }
     }
 
-    void HandleUserEarnedReward(object sender, Reward args)
+    void HandleUserEarnedReward()
     {
         TurnWheelForFree();
         PlayerPrefs.SetString("AdSpinAvailable", DateTime.Now.AddHours(4).ToString());
