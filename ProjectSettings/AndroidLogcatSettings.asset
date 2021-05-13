@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "ZY22428MPF",
         "name": "com.RitvikIyer.Magnetude",
-        "processId": 6009,
+        "processId": 13244,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,24 @@
             "deviceId": "ZY22428MPF",
             "name": "com.RitvikIyer.Magnetude",
             "processId": 6009,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22428MPF",
+            "name": "com.RitvikIyer.Magnetude",
+            "processId": 25662,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22428MPF",
+            "name": "com.RitvikIyer.Magnetude",
+            "processId": 26702,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY22428MPF",
+            "name": "com.RitvikIyer.Magnetude",
+            "processId": 13244,
             "exited": false
         }
     ],
