@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 using System;
 using UnityEngine.PlayerLoop;
 using Yodo1.MAS;

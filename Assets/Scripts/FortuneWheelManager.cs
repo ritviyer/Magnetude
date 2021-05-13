@@ -4,8 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Globalization;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
+
 
 public class FortuneWheelManager : MonoBehaviour
 {

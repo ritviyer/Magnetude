@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
+
 public static class GlobalVariables
 {
     public static int gameNumber;

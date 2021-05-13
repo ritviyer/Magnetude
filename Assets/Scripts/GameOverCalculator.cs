@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using GoogleMobileAds.Api;
-using GoogleMobileAds.Common;
 
 public class GameOverCalculator : MonoBehaviour
 {
