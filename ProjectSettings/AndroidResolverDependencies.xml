@@ -1,5 +1,6 @@
 <dependencies>
   <packages>
+    <package>com.google.games:gpgs-plugin-support:0.10.12</package>
     <package>com.yodo1.mas:full:4.1.0</package>
   </packages>
   <files>
@@ -87,15 +88,22 @@
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-19.7.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.7.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-17.3.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-19.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-base-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-17.4.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.5.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-drive-17.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-games-21.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-19.7.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-location-17.1.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-17.5.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.5.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-nearby-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-places-placereport-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.code.gson.gson-2.8.6.jar</file>
+    <file>Assets/Plugins/Android/com.google.games.gpgs-plugin-support-0.10.12.aar</file>
     <file>Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar</file>
     <file>Assets/Plugins/Android/com.inmobi.monetization.inmobi-ads-9.1.1.aar</file>
     <file>Assets/Plugins/Android/com.ironsource.adapters.adcolonyadapter-4.3.7.aar</file>

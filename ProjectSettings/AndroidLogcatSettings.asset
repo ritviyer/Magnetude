@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "ZY22428MPF",
     "m_SelectedPackage": {
-        "deviceId": "ZY22428MPF",
-        "name": "com.RitvikIyer.Magnetude",
-        "processId": 13244,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -61,6 +61,12 @@
             "name": "com.RitvikIyer.Magnetude",
             "processId": 13244,
             "exited": false
+        },
+        {
+            "deviceId": "ZY22428MPF",
+            "name": "com.RitvikIyer.Magnetude",
+            "processId": 21004,
+            "exited": true
         }
     ],
     "m_Tags": {

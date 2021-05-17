@@ -30,9 +30,11 @@ public class GameManager : MonoBehaviour
     }
     public void EndGame()
     {
+        FindObjectOfType<GPGController>().AddScoreToLeaderBorad(GlobalVariables.gameScore);
         if (PlayerPrefs.GetInt("ActiveChallenge") > 1)
         {
-            FindObjectOfType<AddsManager>().ShowInterstitial();
+            if(Random.Range(0,10)<2)
+                FindObjectOfType<AddsManager>().ShowInterstitial();
         }
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
